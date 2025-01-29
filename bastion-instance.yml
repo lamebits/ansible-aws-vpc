@@ -38,14 +38,14 @@
       register: BastionSG_out
 
     - name: Create Bastion EC2 Instance
-      ec2_instance:
+      community.aws.ec2_instance:
         key_name: vprofile-key
         region: "{{ region }}"
         instance_type: t2.micro
-        image_id: "{{ bastion_ami }}" 
+        image: "{{ bastion_ami }}" 
         wait: yes
         wait_timeout: 300
-        instance_tags:   
+        tags:   
           Name: "Bastion_Host"
           Project: "Vprofile" 
           Owner: DevOps Team
