@@ -5,7 +5,7 @@
 
     - name: Import Bastion Setup file
       include_vars: 
-        file: vars/bastion_setup
+        file: vars/bastion_setup.txt
 
     - name: Import Variable Output file
       include_vars: 
