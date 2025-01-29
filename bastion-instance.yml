@@ -38,11 +38,12 @@
       register: BastionSG_out
 
     - name: Create Bastion EC2 Instance
-      ec2:
+      ec2_instance:
         key_name: vprofile-key
         region: "{{ region }}"
         instance_type: t2.micro
-        image: "{{ bastion_ami }}" 
+        image: 
+          id: "{{ bastion_ami }}" 
         wait: yes
         wait_timeout: 300
         tags:   
@@ -50,10 +51,10 @@
           Project: "Vprofile" 
           Owner: DevOps Team
         exact_count: 1
-        count_tag: 
-          Name: "Bastion_Host"
-          Project: "Vprofile" 
-          Owner: DevOps Team
-        security_group_ids: "{{ BastionSG_out.group_id }}"
+        #count_tag: 
+          #Name: "Bastion_Host"
+          #Project: "Vprofile" 
+          #Owner: DevOps Team
+        security_group: "{{ BastionSG_out.group_id }}"
         vpc_subnet_id: "{{ pubsub1id }}"
       register: BastionHost_out
