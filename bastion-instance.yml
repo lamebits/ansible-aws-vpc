@@ -25,7 +25,7 @@
       when: key_out.changed
 
     - name: Create Security Group for Bastion Host
-      community.aws.ec2_group:
+      ec2_group:
         name: Bastion-host-sg
         description: Allow port 22 from anywhere and all port within Bastion-host-sg
         region: "{{ region }}"
@@ -35,18 +35,14 @@
             from_port: 22
             to_port: 22
             cidr_ip: "{{ MYIP }}"
-          - proto: tcp
-            from_port: 0
-            to_port: 65535
-            cidr_ip: "{{ MYIP }}"
       register: BastionSG_out
 
     - name: Create Bastion EC2 Instance
-      community.aws.ec2_instance:
+      ec2:
         key_name: vprofile-key
         region: "{{ region }}"
         instance_type: t2.micro
-        image_id: "{{ bastion_ami }}" 
+        image: "{{ bastion_ami }}" 
         wait: yes
         wait_timeout: 300
         tags:   
