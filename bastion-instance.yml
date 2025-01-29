@@ -37,7 +37,7 @@
           cidr_ip: "{{ MYIP }}"
       register: BastionSG_out
 
-    - name: Create Bastion EC@ Instance
+    - name: Create Bastion EC2 Instance
       ec2:
         key_name: vprofile-key
         region: "{{ region }}"
