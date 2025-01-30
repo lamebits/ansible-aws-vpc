@@ -35,10 +35,10 @@
         region: "{{ region }}"
         vpc_id: "{{ vpcid }}"
         rules:
-          to_port: 80
-          from_port: 80
-          proto: tcp
-          cidr_ip: 0.0.0.0/0 
+          - to_port: 80
+            from_port: 80
+            proto: tcp
+            cidr_ip: 0.0.0.0/0 
       register: vproELB_out
 
     - name: Create Security Group for Vprofile Stack 
