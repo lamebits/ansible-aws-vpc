@@ -58,7 +58,7 @@
             from_port: 22
             proto: tcp
             group_id: "{{ BastionSG_Id }}"
-      register: vproStack-sg_out
+      register: vproStacksg_out
 
     - name: Update Security Group with its own sg id
       ec2_group:
@@ -69,7 +69,7 @@
         purge_rules: no
         rules:
           - proto: all
-            group_id: "{{ vproStack-sg_out.group_id }}" 
+            group_id: "{{ vproStacksg_out.group_id }}" 
 
 
 
