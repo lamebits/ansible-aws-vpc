@@ -182,7 +182,7 @@
       register: db01_out
 
     - debug:
-        var: db01_out.instance_ids
+        var: db01_out.instance_ids[0].id
 
     - local_action:
         module: ec2_elb_lb
