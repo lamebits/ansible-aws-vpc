@@ -23,4 +23,4 @@ state: present
 
 # Bastion Host
 bastion_ami: ami-018875e7376831abe
-MYIP: 106.219.90.224/32
+MYIP: 106.21.89.40/32
