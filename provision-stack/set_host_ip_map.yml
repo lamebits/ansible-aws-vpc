@@ -1,7 +1,5 @@
 - name: Set Hosts to IP Mapping in /etc/hosts file for all servers 
-  hosts: localhost
-  connection: local
-  become: yes
+  hosts: all
   tasks:
     - name: Import VPC steup variable file
       include_vars: 
