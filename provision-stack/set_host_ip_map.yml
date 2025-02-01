@@ -4,7 +4,8 @@
   become: yes
   tasks:
     - name: Import VPC steup variable file
-      include_vars: group_vars/hostip
+      include_vars: 
+        file: group_vars/hostip
 
     - name: Update host files for all the host  
       blockinfile: 
