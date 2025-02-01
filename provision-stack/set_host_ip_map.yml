@@ -5,7 +5,7 @@
   tasks:
     - name: Import VPC steup variable file
       include_vars: 
-        file: group_vars/hostip
+        file: group_vars/hostsip
 
     - name: Update host files for all the host  
       blockinfile: 
